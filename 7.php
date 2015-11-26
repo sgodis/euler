@@ -9,9 +9,10 @@ $array = [2, 3, 5];
 $next = 7;
 do{
     $value = $next;
-    $next = $value + 1;
-    if($value % 2 == 0 || $value % 5 == 0) continue;
-    for($i = 3; $i < $value; $i++){
+    $next = $value + 2;
+    if($value % 5 == 0) continue;
+    for($i = 3; $i < $value; $i = $i + 2){
+        if ($i % 5 == 0) continue;
         if($value % $i == 0){
            continue 2;
         }
