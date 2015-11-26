@@ -7,6 +7,7 @@
  */
 $array = [2, 3, 5];
 $next = 7;
+echo time();
 do{
     $value = $next;
     $next = $value + 2;
@@ -20,3 +21,4 @@ do{
     $array[] = $value;
 }while(count($array) <= 10000);
 echo end($array);
+echo time();
