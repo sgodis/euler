@@ -32,8 +32,11 @@ $len = 13;
 $maxI = 1000 - $len;
 for($i = 0; $i < $maxI; $i++){
     $subStr = substr($realDigit, $i, $len);
-    if(strpos($subStr, '0') == FALSE){
+    $pos = strpos($subStr, '0');
+    if($pos == FALSE){
         $result[$subStr] = array_product(str_split($subStr, 1));
+    }else{
+        $i = $i + $pos;
     }
 }
 echo max($result);
