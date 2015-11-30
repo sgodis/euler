@@ -5,6 +5,8 @@
  * date: 2015/11/26
  * Time: 17:04
  */
+//unfinish
+
 $result = [2, 3, 5];
 for($i = 7; $i < 10; $i = $i + 2){
     if ($i % 5 == 0) continue;
