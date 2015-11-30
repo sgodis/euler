@@ -49,6 +49,5 @@ function numberSpiralDiagonals($n)
 
 //example: $n = 5; $sum=101;
 $n = 1001;
-$n = 2;
 $sum = numberSpiralDiagonals($n);
 echo $sum;
