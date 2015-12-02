@@ -47,7 +47,7 @@ for($i = 0;$i <= 16; $i++){
         //$result[$i . '_' . $j][$data[$i][$j] . '_' . $data[$i + 1][$j] . '_' . $data[$i + 2][$j] . '_' . $data[$i + 3][$j]] = $data[$i][$j] * $data[$i + 1][$j] * $data[$i + 2][$j] * $data[$i + 3][$j];
         //$result[$i . '_' . $j][$data[$i][$j] . '_' . $data[$i + 1][$j + 1] . '_' . $data[$i + 2][$j + 2] . '_' . $data[$i + 3][$j + 3]] = $data[$i][$j] * $data[$i + 1][$j + 1] * $data[$i + 2][$j + 2] * $data[$i + 3][$j + 3];
         //$result[$i . '_' . $j][$data[$i + 3][$j] . '_' . $data[$i + 2][$j + 1] . '_' . $data[$i + 1][$j + 2] . '_' . $data[$i][$j + 3]] = $data[$i + 3][$j] * $data[$i + 1][$j + 2] * $data[$i + 2][$j + 1] * $data[$i][$j + 3];
-        if($i == 16){
+        if($i == 16){ //当横排到达17行时，需再计算18,19,20行
             $result[] = $data[$i + 1][$j] * $data[$i + 1][$j + 1] * $data[$i + 1][$j + 2] * $data[$i + 1][$j + 3];
             $result[] = $data[$i + 2][$j] * $data[$i + 2][$j + 1] * $data[$i + 2][$j + 2] * $data[$i + 2][$j + 3];
             $result[] = $data[$i + 3][$j] * $data[$i + 3][$j + 1] * $data[$i + 3][$j + 2] * $data[$i + 3][$j + 3];
@@ -55,7 +55,7 @@ for($i = 0;$i <= 16; $i++){
             //$result2[$data[$i + 2][$j] . '_' . $data[$i + 2][$j + 1] . '_' . $data[$i + 2][$j + 2] . '_' . $data[$i + 2][$j + 3]] = $data[$i + 2][$j] * $data[$i + 2][$j + 1] * $data[$i + 2][$j + 2] * $data[$i + 2][$j + 3];
             //$result2[$data[$i + 3][$j] . '_' . $data[$i + 3][$j + 1] . '_' . $data[$i + 3][$j + 2] . '_' . $data[$i + 3][$j + 3]] = $data[$i + 3][$j] * $data[$i + 3][$j + 1] * $data[$i + 3][$j + 2] * $data[$i + 3][$j + 3];
         }
-        if($j == 16){
+        if($j == 16){ //当竖排到达17列时，需再计算18,19,20列
             $result[] = $data[$i][$j + 1] * $data[$i + 1][$j + 1] * $data[$i + 2][$j + 1] * $data[$i + 3][$j + 1];
             $result[] = $data[$i][$j + 2] * $data[$i + 1][$j + 2] * $data[$i + 2][$j + 2] * $data[$i + 3][$j + 2];
             $result[] = $data[$i][$j + 3] * $data[$i + 1][$j + 3] * $data[$i + 2][$j + 3] * $data[$i + 3][$j + 3];
