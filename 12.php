@@ -29,7 +29,7 @@ What is the value of the first triangle number to have over five hundred divisor
 $result = 0;
 for($i = 1; $i <= 20000; $i++){
     $result = getSum($i);
-    $divisorsNum = 0; //有多少个因子
+    $divisorsNum = 0; //鏈夊灏戜釜鍥犲瓙
     $sqrt = sqrt($result);
     if(is_int($sqrt)){
         $divisorsNum += 1;

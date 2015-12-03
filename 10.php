@@ -12,7 +12,7 @@ $result = 10;
 for($i = 7; $i < 2000000; $i = $i + 2){
     if ($i % 5 == 0) continue;
     $max = intval(sqrt($i));
-    for($j = 3; $j <= $max; $j = $j + 2){ //此处应小于等于max，一个数整除它的平发根也不是质数
+    for($j = 3; $j <= $max; $j = $j + 2){ //姝ゅ搴斿皬浜庣瓑浜巑ax锛屼竴涓暟鏁撮櫎瀹冪殑骞冲彂鏍逛篃涓嶆槸璐ㄦ暟
         if($i % $j == 0){
             continue 2;
         }

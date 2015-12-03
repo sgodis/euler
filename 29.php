@@ -7,10 +7,10 @@
  */
 /**
  * https://projecteuler.net/problem=29
- * ½âÌâË¼Â·£ºÖ¸¶¨·¶Î§ÄÚµÄÖµ´æÔÚÖ¸Êı½á¹ûÈÔÔÚÖ¸¶¨·¶Î§£¬Ôò»á³öÏÖÖØ¸´£¬Èç£º
- * 2^2Ö¸Êı½á¹ûÎª4,10^2µÄÖ¸ÊıÎª100£¬Ôò2ºÍ4£¬10ºÍ100µÄÖ¸Êı½á¹û¼¯»á³öÏÖÖØ¸´
+ * è§£é¢˜æ€è·¯ï¼šæŒ‡å®šèŒƒå›´å†…çš„å€¼å­˜åœ¨æŒ‡æ•°ç»“æœä»åœ¨æŒ‡å®šèŒƒå›´ï¼Œåˆ™ä¼šå‡ºç°é‡å¤ï¼Œå¦‚ï¼š
+ * 2^2æŒ‡æ•°ç»“æœä¸º4,10^2çš„æŒ‡æ•°ä¸º100ï¼Œåˆ™2å’Œ4ï¼Œ10å’Œ100çš„æŒ‡æ•°ç»“æœé›†ä¼šå‡ºç°é‡å¤
  */
-//¿É´«²ÎµÄarray_map
+//å¯ä¼ å‚çš„array_map
 function local_array_map($array, $variable)
 {
     $multi = function($item) use ($variable)
@@ -30,12 +30,12 @@ for($i = 2; $i <= 10; $i++){
         }
     }
 }
-$array = range(2, 100); //ËùÓĞ2-100µÄÊı¶¼ÓĞ2-100µÄÖ¸Êı
+$array = range(2, 100); //æ‰€æœ‰2-100çš„æ•°éƒ½æœ‰2-100çš„æŒ‡æ•°
 $hasSqrt = array_unique($hasSqrt);
 $withoutSqrt = array_diff($array, $hasSqrt);
-$withoutSqrtDistinct = count($withoutSqrt) * 99; //»ñÈ¡²»´æÔÚÏàÍ¬Ö¸Êı½á¹ûµÄÊıµÄÖ¸ÊıÊıÁ¿
+$withoutSqrtDistinct = count($withoutSqrt) * 99; //è·å–ä¸å­˜åœ¨ç›¸åŒæŒ‡æ•°ç»“æœçš„æ•°çš„æŒ‡æ•°æ•°é‡
 
-//4,8ÒÑÔÚ2µÄ½á¹ûÖĞ³öÏÖ£¬9ÒÑÔÚ3µÄ½á¹ûÖĞ³öÏÖ£¬ËùÒÔunset
+//4,8å·²åœ¨2çš„ç»“æœä¸­å‡ºç°ï¼Œ9å·²åœ¨3çš„ç»“æœä¸­å‡ºç°ï¼Œæ‰€ä»¥unset
 unset($relation[4]);
 unset($relation[8]);
 unset($relation[9]);
@@ -45,7 +45,7 @@ foreach($relation as $root => $value){
         $tempArr = array_merge($tempArr, local_array_map($array, $exp));
     }
     $unique = array_unique($tempArr);
-    $result[$root] = count($unique);//ÒÔrootÎª¸ùµÄ²»Í¬Ö¸ÊıÊıÁ¿
+    $result[$root] = count($unique);//ä»¥rootä¸ºæ ¹çš„ä¸åŒæŒ‡æ•°æ•°é‡
 }
 $hasSqrtDistinct = array_sum($result);
 $total = $withoutSqrtDistinct + $hasSqrtDistinct;
