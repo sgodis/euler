@@ -45,7 +45,7 @@ foreach($relation as $root => $value){
         $tempArr = array_merge($tempArr, local_array_map($array, $exp));
     }
     $unique = array_unique($tempArr);
-    $result[$root] = count($unique);
+    $result[$root] = count($unique);//以root为根的不同指数数量
 }
 $hasSqrtDistinct = array_sum($result);
 $total = $withoutSqrtDistinct + $hasSqrtDistinct;
