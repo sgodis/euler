@@ -19,3 +19,39 @@
  * Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
  */
+$upLimit = 28123;
+$max = $upLimit - 12;
+for($i = 12; $i <= $max; $i++){
+    $tempArr = [1];
+    $sqrt = sqrt($i);   //sqrt()的结果是浮点数，不能用is_int判断结果是否是整数
+    $limit = ceil($sqrt);
+    if($sqrt == $limit){
+        $tempArr[] = $sqrt;
+    }
+    for($j = 2; $j < $limit; $j++){
+        if($i % $j == 0){
+            $tempArr[] = $j;
+            $tempArr[] = $i / $j;
+        }
+    }
+    if(array_sum($tempArr) > $i){
+        $abundantNumbers[] = $i;
+    }
+}
+$count = count($abundantNumbers);
+$result = [];
+$all = range(1, 28123);
+for($i = 0; $i < $count; $i++){
+    for($j = $i; $j < $count; $j++){
+        $sum = intval($abundantNumbers[$i] + $abundantNumbers[$j]);
+        if($sum <= $upLimit && isset($all[$sum - 1])){
+        /* 因为是生成顺序数组，数组值即数组键值减一，所以可使用$sum - 1确定该值
+           此处使用isset($all[$sum - 1])来判断值是否存在于1-28123,效率提高了几百倍，
+           使用in_array($sum, $all, TRUE)，即使使用第三个参数TRUE限制了判断类型，但
+           是在可执行时间300s内根本算不出结果 */
+            unset($all[$sum - 1]);
+        }
+    }
+}
+echo array_sum($all);
+
