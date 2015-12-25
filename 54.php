@@ -128,7 +128,7 @@ class PokerHand
                                         } elseif ($singleA < $singleB){
                                             return FALSE;
                                         } else {
-                                            echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, $pokerA, $pokerB);
+                                            echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, implode(',', $pokerA), implode(',', $pokerB));
                                         }
                                     } elseif ($cond1 || $cond2) { ////TwoPairs的值有一个Pair值不一样，比较TwoPairs总和谁大
                                         return array_sum($pairsValuesA) > array_sum($pairsValuesB) ? TRUE : FALSE;
@@ -152,7 +152,7 @@ class PokerHand
                                                 return FALSE;
                                             }
                                         }
-                                        echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, $pokerA, $pokerB);
+                                        echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, implode(',', $pokerA), implode(',', $pokerB));
                                     }
 
                                 }
@@ -204,13 +204,11 @@ class PokerHand
                     } elseif ($splitPokerA['value'][0] < $splitPokerB['value'][0]) {
                         return FALSE;
                     } else {
-                        echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, $pokerA, $pokerB);
+                        echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, implode(',', $pokerA), implode(',', $pokerB));
                     }
                 } elseif ($isStraightA || $isStraightB) { //有一个是顺子
                     return $isStraightA ? TRUE : FALSE;
                 } else { //都不是顺子
-                    //print_r($splitPokerA['value']);
-                    //print_r($splitPokerB['value']);
                     for($i = 0; $i < 5; $i++) {
                         if ($splitPokerA['value'][$i] > $splitPokerB['value'][$i]) {
                             return TRUE;
@@ -218,7 +216,7 @@ class PokerHand
                             return FALSE;
                         }
                     }
-                    echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, $pokerA, $pokerB);
+                    echo sprintf("line : %d 牌组一样，pokerA : %s,pokerB : %s. \n", __LINE__, implode(',', $pokerA), implode(',', $pokerB));
                 }
             } elseif ($isFlushA || $isFlushB) { //如果其中只有一个是同花
                 return $isFlushA ? TRUE : FALSE;
