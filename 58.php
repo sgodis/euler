@@ -43,7 +43,7 @@ echo $i * 2 - 1; //计算长度
  * @param $number
  * @return bool
  */
-function isPrimeNumber($number){
+function isPrimeNumber($number){ //此方法另参考37.php
     $sqrt = sqrt($number);
     if($sqrt == intval($sqrt)){
         return FALSE;
